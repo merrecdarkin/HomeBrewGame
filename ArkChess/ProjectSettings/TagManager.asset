@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - WalkablePlane
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Grid
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BattleField
+    uniqueID: 1091150361
+    locked: 0
+  - name: UnitSprite
+    uniqueID: 291648167
+    locked: 0
+  - name: BattlePop
+    uniqueID: 2683518115
+    locked: 0
