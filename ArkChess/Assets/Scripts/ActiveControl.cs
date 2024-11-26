@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActiveControl : MonoBehaviour
 {
-    public float MovementSet=50.0f;
+    public float MovementAvail=50.0f;
     public float MovementAnimateS; private bool IsMoving;
     public int Initiative=1; public int InitiativeMod=0;
 
@@ -18,7 +18,7 @@ public class ActiveControl : MonoBehaviour
         mainCamera= GameObject.Find("MainCamera").GetComponent<Camera>();
         RollInitiativeOnTurn();
         GetRally= rallypoint.GetComponent<RallyPointScript>();
-        MovementSet=50.0f;
+        MovementAvail=50.0f;
         placeToMoveTo=transform.position;
     }
 
@@ -39,8 +39,8 @@ public class ActiveControl : MonoBehaviour
 
     void MovetoPlaceMarker(Vector3 placeToMoveToMarked){
         placeToMoveTo.x=placeToMoveToMarked.x;         placeToMoveTo.y=placeToMoveToMarked.x;
-            if(MovementSet>(Vector3.Distance(transform.position,placeToMoveToMarked))){
-                MovementSet=MovementSet-(Vector3.Distance(transform.position,placeToMoveToMarked));
+            if(MovementAvail>(Vector3.Distance(transform.position,placeToMoveToMarked))){
+                MovementAvail=MovementAvail-(Vector3.Distance(transform.position,placeToMoveToMarked));
                 Debug.Log(Vector3.Distance(transform.position,placeToMoveToMarked));
                 GetRally.setRallyPoint(placeToMoveToMarked);
                 IsMoving=true;
@@ -49,15 +49,16 @@ public class ActiveControl : MonoBehaviour
 
    }
 
-    public void RollInitiativeOnTurn(){
+    public int RollInitiativeOnTurn(){
         Initiative=Random.Range(1,21+InitiativeMod);
+        return Initiative;
     }
 
    void OnDrawGizmos()
     {
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, MovementSet);
+        Gizmos.DrawWireSphere(transform.position, MovementAvail);
     }
 
 }
